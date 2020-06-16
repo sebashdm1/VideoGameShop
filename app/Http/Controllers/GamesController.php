@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class GamesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        //Muestra una coleccion del recurso
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('games.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //almacena en la base de datos nuevos recursos
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        //muestra un recurso
     }
 
     /**
@@ -56,7 +56,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        //edita un producto
     }
 
     /**
@@ -68,7 +68,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Actualiza un producto
     }
 
     /**
