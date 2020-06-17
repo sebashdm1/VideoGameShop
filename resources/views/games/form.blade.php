@@ -1,5 +1,5 @@
 <div class="card-body">
-    <form method="POST" action="{{ route('games') }}">
+    <form method="POST" action="{{ route('games.store') }}">
         @csrf
 
         <div class="form-group row">
