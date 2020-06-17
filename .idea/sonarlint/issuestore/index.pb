@@ -41,3 +41,9 @@ N
 resources/views/home.blade.php,a\2\a2a516abb04bf3dd73ba4b569b16cc453e3ac2bb
 T
 $resources/views/games/form.blade.php,7\f\7fc8d2ad41b1d2294a9e91f3f7ac84caf3e09de1
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+l
+<database/migrations/2020_06_16_192811_create_games_table.php,2\e\2e955153ecd50b423f9888bbe454dc18c402ec19
+=
+app/Games.php,e\b\eb46136c40e24a02ec452663f336630a22e25e4c
