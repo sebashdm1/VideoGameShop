@@ -24,7 +24,8 @@ class GamesController extends Controller
      */
     public function create()
     {
-        return view('games.create');
+        $game = new Game;
+        return view('games.create',["game"=>$game]);
     }
 
     /**
@@ -68,7 +69,8 @@ class GamesController extends Controller
      */
     public function edit($id)
     {
-        //edita un producto
+        $game = Game::find($id);
+        return view("games.edit",["game" =>$game]);
     }
 
     /**

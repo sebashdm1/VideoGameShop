@@ -6,7 +6,7 @@
             <label for="videogamenamename" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Video Juego') }}</label>
 
             <div class="col-md-6">
-                <input id="videogamename" type="text" class="form-control @error('videogamename') is-invalid @enderror" name="videogamename" value="{{ old('videogamename') }}" required autocomplete="videogamename" autofocus>
+                <input id="videogamename" type="text" class="form-control @error('videogamename') is-invalid @enderror" name="videogamename" value="{{ $game->videogamename }}" required autocomplete="videogamename" autofocus>
 
                 @error('videogamename')
                 <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
             <label for="console" class="col-md-4 col-form-label text-md-right">{{ __('Consola') }}</label>
 
             <div class="col-md-6">
-                <input id="console" type="text" class="form-control @error('console') is-invalid @enderror" name="console" value="{{ old('console') }}" required autocomplete="console" autofocus>
+                <input id="console" type="text" class="form-control @error('console') is-invalid @enderror" name="console" value="{{ $game->consoletype }}" required autocomplete="console" autofocus>
 
                 @error('console')
                 <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
 
             <div class="col-md-6">
-                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $game->price }}" required autocomplete="price">
 
                 @error('price')
                 <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
 
             <div class="col-md-6">
-                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description">
+                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description"  value="{{$game->description}}" required autocomplete="description">
 
                 @error('description')
                 <span class="invalid-feedback" role="alert">
@@ -57,24 +57,6 @@
                 @enderror
             </div>
         </div>
-
-
-
-        <div class="form-group row">
-            <label for="available" class="col-md-4 col-form-label text-md-right">{{ __('Cantidad Disponible') }}</label>
-
-            <div class="col-md-6">
-                <input id="available" type="text" class="form-control @error('available') is-invalid @enderror" name="available" required autocomplete="available">
-
-                @error('available')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                @enderror
-            </div>
-        </div>
-
-
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
