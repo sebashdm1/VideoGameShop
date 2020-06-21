@@ -1,6 +1,7 @@
 <div class="card-body">
-    <form method="POST" action="{{ route('games.store') }}">
+    <form method="POST" action="{{ route($game->url(),$game->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
         @csrf
+        @method($game->method())
 
         <div class="form-group row">
             <label for="videogamenamename" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Video Juego') }}</label>

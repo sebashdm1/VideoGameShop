@@ -14,7 +14,8 @@ class GamesController extends Controller
      */
     public function index()
     {
-        //Muestra una coleccion del recurso
+        $games = Game::all();
+        return view('games.index',['games' => $games]);
     }
 
     /**
@@ -52,7 +53,7 @@ class GamesController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *git
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -70,7 +71,7 @@ class GamesController extends Controller
     public function edit($id)
     {
         $game = Game::find($id);
-        return view("games.edit",["game" =>$game]);
+        return view("games.edit",["game" =>$game]); // De esta manera se envia dantos hacia la vista
     }
 
     /**
@@ -82,7 +83,20 @@ class GamesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Actualiza un producto
+        $game = Game::find($id);
+
+           $game->videogamename = $request->videogamename;
+           $game->consoletype = $request->console;
+           $game-> price = $request->price;
+           $game-> description= $request->description;
+
+
+        if($game->save()){
+            return  redirect('/');
+        }else{
+            return view("games.edit",["game" =>$game]);
+        }
+
     }
 
     /**

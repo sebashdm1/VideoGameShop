@@ -7,15 +7,6 @@ use Illuminate\Queue\InteractsWithQueue;
 
 class WelcomeNewUserListener
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
 
     /**
      * Handle the event.
@@ -25,6 +16,6 @@ class WelcomeNewUserListener
      */
     public function handle($event)
     {
-        //
+        Mail::to($event->user->email)->send(new WelcomeUser());
     }
 }

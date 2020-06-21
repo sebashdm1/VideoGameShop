@@ -47,3 +47,15 @@ l
 <database/migrations/2020_06_16_192811_create_games_table.php,2\e\2e955153ecd50b423f9888bbe454dc18c402ec19
 <
 app/Game.php,1\e\1ea26270cea4d41af8bf5471b557bafb93d6055a
+T
+$resources/views/games/edit.blade.php,6\c\6ce28adddb2ae77beda9a398e6da08bb38b525e9
+H
+app/Mail/WelcomeUser.php,6\0\6052d4c11047d47e284682c8a15e76afe96e2c55
+X
+(resources/views/emails/welcome.blade.php,c\2\c261e3637a9a8e2c2d3ab11dd43526feadddba43
+X
+(app/Events/NewUserHasRegisteredEvent.php,a\1\a11928b1add676b6206f4b8b25f393a778e2d46d
+X
+(app/Listeners/WelcomeNewUserListener.php,d\b\dbb76980bca5fa1cac8c3db905e8f8f702e8c53a
+U
+%resources/views/games/index.blade.php,8\9\8941f1b38164e960167c5f7ef9998d74582cff30
