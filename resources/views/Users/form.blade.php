@@ -1,15 +1,15 @@
 <div class="card-body">
-    <form method="POST" action="{{ route($game->url(),$game->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
+    <form method="POST" action="/users/{{$user->id}}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
         @csrf <!--token para pasar la verificacioin de seguridad-->
-        @method($game->method())
+        @method('put')
 
         <div class="form-group row">
-            <label for="videogamenamename" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Video Juego') }}</label>
+            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
             <div class="col-md-6">
-                <input id="videogamename" type="text" class="form-control @error('videogamename') is-invalid @enderror" name="videogamename" value="{{ $game->videogamename }}" required autocomplete="videogamename" autofocus>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
 
-                @error('videogamename')
+                @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -18,12 +18,12 @@
         </div>
 
         <div class="form-group row">
-            <label for="console" class="col-md-4 col-form-label text-md-right">{{ __('Consola') }}</label>
+            <label for="userName" class="col-md-4 col-form-label text-md-right">{{ __('Nombre usuario') }}</label>
 
             <div class="col-md-6">
-                <input id="console" type="text" class="form-control @error('console') is-invalid @enderror" name="console" value="{{ $game->consoletype }}" required autocomplete="console" autofocus>
+                <input id="userName" type="text" class="form-control @error('userName') is-invalid @enderror" name="userName" value="{{ $user->userName }}" required autocomplete="userName" autofocus>
 
-                @error('console')
+                @error('userName')
                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -32,26 +32,12 @@
         </div>
 
         <div class="form-group row">
-            <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
+            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
 
             <div class="col-md-6">
-                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $game->price }}" required autocomplete="price">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
 
-                @error('price')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
-
-            <div class="col-md-6">
-                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description"  value="{{$game->description}}" required autocomplete="description">
-
-                @error('description')
+                @error('email')
                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -62,7 +48,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Guardar') }}
+                    {{ __('Actualizar') }}
                 </button>
             </div>
         </div>

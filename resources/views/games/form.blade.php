@@ -1,6 +1,6 @@
 <div class="card-body">
     <form method="POST" action="{{ route($game->url(),$game->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
-        @csrf
+        @csrf <!--token para pasar la verificacioin de seguridad-->
         @method($game->method())
 
         <div class="form-group row">

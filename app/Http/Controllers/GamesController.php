@@ -14,7 +14,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-        $games = Game::all();
+        $games = Game::paginate(2);
         return view('games.index',['games' => $games]);
     }
 
@@ -45,7 +45,7 @@ class GamesController extends Controller
         ];
 
         if(Game::create($options)){
-              return  redirect('/');
+              return  redirect('/games');
         }else{
             return view('games.create');
         }

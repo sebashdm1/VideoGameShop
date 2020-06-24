@@ -17,7 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::group(['middleware' => 'verified'],function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('games','GamesController');
+Route::resource('users','UsersController');
+Route::get('/users/{id}/confirmDelete','UsersController@confirmDelete');
+
+});
+
+
