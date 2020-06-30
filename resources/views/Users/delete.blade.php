@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('users.destroy',$user->id) }}" onsubmit="return confirm('desea eliminar el usuario?')"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
+<form method="POST" class="float-left" action="{{ route('admin.users.destroy',$user->id) }}" onsubmit="return confirm('desea eliminar el usuario?')">
     @csrf <!--token para pasar la verificacioin de seguridad-->
         @method('delete')
 

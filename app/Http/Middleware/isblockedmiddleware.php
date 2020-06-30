@@ -15,6 +15,9 @@ class isblockedmiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->check() && auth()->user()->isBlocked==0)
+          return $next($request);
+
+        return redirect('/blocked');
     }
 }

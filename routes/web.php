@@ -14,18 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    $user=Auth::user();
+
+    if (Auth::check())
+        if ($user->esAdmin())
+            echo "Eres usuario administrador.";
+        else
+            echo "Eres estudiante.";
+
     return view('welcome');
 });
 
+
+
+Route::get('/blocked','BlockedController@index');
 Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => 'verified'],function(){
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('games','GamesController');
-Route::resource('users','UsersController');
-Route::get('/users/{id}/confirmDelete','UsersController@confirmDelete');
+Route::group(['middleware' => 'isBlocked'],function(){
+
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+    Route::resource('games','GamesController')->middleware('verified');
+    Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+        Route::resource('/users','UsersController',['except'=>['show','create','store']])->middleware('verified');
+    });
+
+
 
 });
+
+
+
 
 

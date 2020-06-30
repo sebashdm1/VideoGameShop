@@ -6,17 +6,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class UserIndexTest extends TestCase
+class IndexTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    public function aUserCanListUsers()
     {
-        $response = $this->get('/');
+        $response = $this->get(route('users.index'));
 
         $response->assertStatus(200);
+        $response->assertViewIs('users.index');
+        $response->assertViewHas('users');
     }
 }
