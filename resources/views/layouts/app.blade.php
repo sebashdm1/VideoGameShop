@@ -35,18 +35,15 @@
                     <ul class="navbar-nav mr-auto">
                         @can('products.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('products.index')}}">Consolas</a>
+                            <a class="nav-link" href="{{route('products.index')}}">Productos</a>
                         </li>
                         @endcan
                         @can('games.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('games.index')}}">Games</a>
+                            <a class="nav-link" href="{{route('games.index')}}">Ofertas</a>
                         </li>
                             @endcan
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.users.index')}}">Usuarios</a>
-                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -69,10 +66,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                                    @can('admin.users.index')
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                         {{ __('Administrar usuarios') }}
                                     </a>
-
+                                    @endcan
 
                                     <a class="dropdown-item" href="{{route('games.index')}}">
                                         {{ __('Catálogo') }}

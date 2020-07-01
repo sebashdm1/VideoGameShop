@@ -78,13 +78,13 @@ use Illuminate\Support\Facades\Route;
             Route::get('users','UsersController@index')->name('users.index')
                 ->middleware('can:users.index');
 
-            Route::get('users/{game}','UsersController@update')->name('users.update')
+            Route::put('users/{user}','UsersController@update')->name('users.update')
                 ->middleware('can:users.edit');
 
             Route::get('users/{user}','UsersController@show')->name('users.show')
                 ->middleware('can:users.show');
 
-            Route::get('users/{user}','UsersController@destroy')->name('users.destroy')
+            Route::delete('users/{user}','UsersController@destroy')->name('users.destroy')
                 ->middleware('can:users.destroy');
 
             Route::get('users/{user}/edit','UsersController@edit')->name('users.edit')

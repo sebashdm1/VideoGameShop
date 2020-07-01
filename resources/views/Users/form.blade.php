@@ -46,17 +46,6 @@
         </div>
 
 
-        <div>
-            <label for="roles[]" class="col-md-4 col-form-label text-md-right">{{ __('Seleccionar rol') }}</label>
-        @foreach($roles as $role)
-                 <div class="form-check" align="center">
-                    <input type="checkbox" name="roles[]" value="{{$role->id}}">
-                    <label>{{$role->name}}</label>
-                 </div>
-        @endforeach
-        </div>
-
-
         <div class="form-group row">
             <p>Habilitar usuario:</p><br/>
             <label for="yes" class="col-md-4 col-form-label text-md-right">{{ __('Si') }}</label><br/>

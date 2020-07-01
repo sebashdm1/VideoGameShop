@@ -88,7 +88,10 @@ class PermissionsTable extends Seeder
         Permission::create([
             'name' => 'Eliminar productos',
             'slug' => 'products.destroy ',
-            'description' => 'Eliminar cualquier dato los productos del sistema'Juegos
+            'description' => 'Eliminar cualquier dato los productos del sistema'
+
+           ]);
+
         //Games
 
         Permission::create([

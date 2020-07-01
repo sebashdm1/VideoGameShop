@@ -71,7 +71,6 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->roles()->detach();
         if($user->delete()){
             return  redirect('/admin/users');
         }else{
