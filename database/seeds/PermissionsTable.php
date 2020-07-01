@@ -80,6 +80,7 @@ class PermissionsTable extends Seeder
             'description' => 'Editar cualquier dato los productos del sistema',
         ]);
         Permission::create([
+
             'name' => 'Edición de productos',
             'slug' => 'products.edit ',
             'description' => 'Editar cualquier dato los productos del sistema',
