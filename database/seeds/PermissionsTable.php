@@ -88,7 +88,34 @@ class PermissionsTable extends Seeder
         Permission::create([
             'name' => 'Eliminar productos',
             'slug' => 'products.destroy ',
-            'description' => 'Eliminar cualquier dato los productos del sistema',
+            'description' => 'Eliminar cualquier dato los productos del sistema'Juegos
+        //Games
+
+        Permission::create([
+            'name' => 'Navegar Juegos',
+            'slug' => 'games.index ',
+            'description' => 'Lista y navega todos los juegos del sistema',
+        ]);
+        Permission::create([
+            'name' => 'Ver detalle de Juegos',
+            'slug' => 'games.show ',
+            'description' => 'Ver en detalle cada juego del sistema',
+        ]);
+        Permission::create([
+            'name' => 'Creacion de Juegos',
+            'slug' => 'games.create',
+            'description' => 'Editar cualquier dato los juegos del sistema',
+        ]);
+        Permission::create([
+
+            'name' => 'Edición de Juegos',
+            'slug' => 'games.edit ',
+            'description' => 'Editar cualquier dato los juegos del sistema',
+        ]);
+        Permission::create([
+            'name' => 'Eliminar Juegos',
+            'slug' => 'games.destroy ',
+            'description' => 'Eliminar cualquier dato los juegos del sistema',
         ]);
 
     }
