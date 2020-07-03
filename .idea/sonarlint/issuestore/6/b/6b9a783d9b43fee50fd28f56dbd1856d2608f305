@@ -1,5 +1,4 @@
 
-j	php:S1192%"IDefine a constant instead of duplicating this literal "verified" 3 times.(óïñøÿÿÿÿ8¬°«°.
-Pphp:S121"0Add curly braces around the nested statement(s).(„¶áìøÿÿÿÿ8¹€´—°.
-Pphp:S121"0Add curly braces around the nested statement(s).(­Å‘˜ûÿÿÿÿ8¹€´—°.
-Kphp:S121"0Add curly braces around the nested statement(s).(ªñÍ8¹€´—°.
+t	php:S1192'"SDefine a constant instead of duplicating this literal "products/{product}" 3 times.(ş®Úºıÿÿÿÿ8š˜ÎÄ°.
+i	php:S1192Q"MDefine a constant instead of duplicating this literal "users/{user}" 3 times.(æŒŞá8š˜ÎÄ°.
+n	php:S1192>"MDefine a constant instead of duplicating this literal "games/{game}" 3 times.(Õ°‘†ùÿÿÿÿ8š˜ÎÄ°.

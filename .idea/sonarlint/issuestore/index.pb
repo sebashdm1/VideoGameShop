@@ -121,8 +121,6 @@ T
 $resources/views/auth/login.blade.php,f\b\fb3cbd7f4b7fd6fa26794a37d7b2f8f783688ff9
 <
 app/Role.php,5\0\506466bcf9d9bc1f32f19b46aa47d9cf4fbbe185
-V
-&app/Http/Middleware/RoleMiddleware.php,1\9\19eefa81cc17f48a02b75d02a696feeae9ffbebe
 ^
 .app/Http/Controllers/Admin/UsersController.php,2\c\2c59a8941d9c4efb218adb2b2262e13f3ab7cf3d
 =
@@ -133,3 +131,5 @@ Q
 !database/seeds/DatabaseSeeder.php,1\b\1bfb05dc7f9d1708ffc561e370a53ad2df3db646
 S
 #database/seeds/PermissionsTable.php,f\5\f5f54d5112cab3d113b7f89f631ac9c7cfafc3d2
+R
+"database/factories/UserFactory.php,3\4\3401747fc769758d97931473eab6222bc2abf009
