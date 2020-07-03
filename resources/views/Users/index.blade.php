@@ -15,7 +15,6 @@
                                 <th>Nombre</th>
                                 <th>Nombre de usuario</th>
                                 <th>Email</th>
-                                <th>Rol</th>
                                 <th>Acciones</th>
                             </tr>
 
@@ -25,7 +24,6 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->userName}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{implode(', ',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td><a class="btn btn-primary float-left" href="/admin/users/{{$user->id}}/edit">Editar</a>@include('Users.delete')</td>
 
                                 </tr>

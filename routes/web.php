@@ -75,8 +75,7 @@ use Illuminate\Support\Facades\Route;
 
         Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 
-            Route::get('users','UsersController@index')->name('users.index')
-                ->middleware('can:users.index');
+            Route::get('users','UsersController@index')->name('users.index');
 
             Route::put('users/{user}','UsersController@update')->name('users.update')
                 ->middleware('can:users.edit');

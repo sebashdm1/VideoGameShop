@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Caffeinated\Shinobi\Concerns\HasRolesAndPermissions;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasRolesAndPermissions;
+    use Notifiable;
     use SoftDeletes;
 
     /**
