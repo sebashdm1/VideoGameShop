@@ -17,8 +17,11 @@ class UsersController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->can('Navegar usuarios')){
         $users = User::all();
         return view('users.index',['users' => $users]);
+        }
+        abort(403);
     }
 
 
