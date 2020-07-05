@@ -10,4 +10,5 @@ $factory->define(Product::class, function (Faker $faker) {
         'name' => $faker->sentence,
         'description' => $faker->sentence,
     ];
+
 });

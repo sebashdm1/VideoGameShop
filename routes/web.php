@@ -30,8 +30,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('products/store','ProductController@store')->name('products.store')
             ->middleware('can:products.create');
 
-        Route::get('products','ProductController@index')->name('products.index')
-            ->middleware('can:products.index');
+        Route::get('products','ProductController@index')->name('products.index');
 
         Route::get('product/create','ProductController@create')->name('products.create')
             ->middleware('can:products.create');
@@ -53,8 +52,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('games/store','GamesController@store')->name('games.store')
             ->middleware('can:games.create');
 
-        Route::get('games','GamesController@index')->name('games.index')
-            ->middleware('can:games.index');
+        Route::get('games','GamesController@index')->name('games.index');
 
         Route::get('games/create','GamesController@create')->name('games.create')
             ->middleware('can:games.create');
@@ -74,29 +72,11 @@ use Illuminate\Support\Facades\Route;
         // Users Routes
 
         Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
-
-            Route::get('users','UsersController@index')->name('users.index');
-
-            Route::put('users/{user}','UsersController@update')->name('users.update')
-                ->middleware('can:users.edit');
-
-            Route::get('users/{user}','UsersController@show')->name('users.show')
-                ->middleware('can:users.show');
-
-            Route::delete('users/{user}','UsersController@destroy')->name('users.destroy')
-                ->middleware('can:users.destroy');
-
-            Route::get('users/{user}/edit','UsersController@edit')->name('users.edit')
-                ->middleware('can:users.edit');
-
+            Route::resource('users', 'UsersController');
         });
 
 
-
-
-
         Route::resource('roles', 'RoleController');
-
 
     });
 

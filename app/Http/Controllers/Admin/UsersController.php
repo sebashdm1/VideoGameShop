@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,30 +13,35 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-
+        if(auth()->user()->can('Navegar usuarios')){
         $users = User::all();
         return view('users.index',['users' => $users]);
+        }
+        abort(403);
     }
 
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
-        $roles = Role::all();
-        return view("Users.edit")->with([
-            "user" =>$user,
-            'roles'=>$roles
-        ]);// De esta manera se envia dantos hacia la vista
+        return view('users.show',['user' => $user]);
+    }
+
+
+    /**
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(User $user)
+    {
+        return view("Users.edit")->with(["user" =>$user,]);
     }
 
     /**
@@ -43,12 +49,11 @@ class UsersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request,$id)
     {
         $user = User::find($id);
-
         $user->name = $request->name;
         $user->userName = $request->userName;
         $user->email= $request->email;
@@ -66,14 +71,14 @@ class UsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\User  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
         $user = User::find($id);
-        if($user->delete()){
-            return  redirect('/admin/users');
-        }else{
+        if(!$user->delete()) {
+            return redirect('/admin/users');
+        } else {
             return redirect('/admin/users');
         }
     }

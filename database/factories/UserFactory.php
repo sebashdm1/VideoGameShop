@@ -28,3 +28,5 @@ $factory->define(User::class, function (Faker $faker) {
         'isBlocked' => 0,
     ];
 });
+
+
