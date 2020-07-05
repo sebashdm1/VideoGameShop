@@ -65,11 +65,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-
+                                    @can('Navegar usuarios')
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                         {{ __('Administrar usuarios') }}
                                     </a>
-
+                                    @endcan
 
                                     <a class="dropdown-item" href="{{route('games.index')}}">
                                         {{ __('Catálogo') }}

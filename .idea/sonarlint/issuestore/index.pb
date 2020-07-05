@@ -129,7 +129,5 @@ T
 $app/Providers/AppServiceProvider.php,4\8\48b8d8112e9bdd32ee7e25b1224d6739eece1e72
 Q
 !database/seeds/DatabaseSeeder.php,1\b\1bfb05dc7f9d1708ffc561e370a53ad2df3db646
-S
-#database/seeds/PermissionsTable.php,f\5\f5f54d5112cab3d113b7f89f631ac9c7cfafc3d2
 R
 "database/factories/UserFactory.php,3\4\3401747fc769758d97931473eab6222bc2abf009
