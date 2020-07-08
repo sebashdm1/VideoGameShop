@@ -131,3 +131,7 @@ Q
 !database/seeds/DatabaseSeeder.php,1\b\1bfb05dc7f9d1708ffc561e370a53ad2df3db646
 R
 "database/factories/UserFactory.php,3\4\3401747fc769758d97931473eab6222bc2abf009
+Z
+*app/Http/Controllers/ProductController.php,f\2\f24bbb9867bf0a5e5b9627ada19ef1f2e10dd225
+T
+$resources/views/Users/show.blade.php,6\4\64c86db4fefcd1f6a30f2b387f45c30948498b46

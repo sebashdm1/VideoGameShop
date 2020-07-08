@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Administrar Usuarios') }}</div>
 
@@ -15,6 +15,7 @@
                                 <th>Nombre</th>
                                 <th>Nombre de usuario</th>
                                 <th>Email</th>
+                                <th>Roles</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
@@ -25,6 +26,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->userName}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     @if($user->isBlocked == 0)
                                     <td>Habilitado</td>
                                     @else

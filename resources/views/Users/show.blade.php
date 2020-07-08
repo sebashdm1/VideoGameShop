@@ -38,6 +38,13 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <h6>{{ __('Rol: ') }}</h6>
+                            <div class="col-md-8">
+                                {{implode(',',$user->roles()->get()->pluck('name')->toArray())}}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

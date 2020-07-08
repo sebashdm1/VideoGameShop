@@ -72,6 +72,13 @@
                 @enderror
             </div>
         </div>
+            @foreach($roles as $role)
+            <div class="form-group">
+                <input type="checkbox" name="roles[]" value="{{$role->name}}">
+                <label>{{$role->name}}</label>
+            </div>
+            @endforeach
+
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">

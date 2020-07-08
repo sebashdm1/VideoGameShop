@@ -41,7 +41,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view("Users.edit")->with(["user" =>$user,]);
+        $roles = Role::all();
+        return view("Users.edit")->with(["user" =>$user,"roles" => $roles]);
     }
 
     /**
@@ -58,7 +59,8 @@ class UsersController extends Controller
         $user->userName = $request->userName;
         $user->email= $request->email;
         $user->isBlocked = $request->isBlocked;
-        $user->roles()->sync($request->roles);
+        $user->assignRole($request->roles);;
+
 
         if($user->save()){
             return  redirect('/admin/users');
