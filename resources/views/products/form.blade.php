@@ -1,18 +1,15 @@
 <div class="card-body">
-    <form method="POST" action="{{ route($game->url(),$game->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
-        @csrf <!--token para pasar la verificacioin de seguridad-->
-        @method($game->method())
-
-
-
+    <form method="POST" action="{{ route($product->url(),$product->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
+    @csrf <!--token para pasar la verificacioin de seguridad-->
+        @method($product->method())
 
         <div class="form-group row">
-            <label for="videogamenamename" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Video Juego') }}</label>
+            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Producto') }}</label>
 
             <div class="col-md-6">
-                <input id="videogamename" type="text" class="form-control @error('videogamename') is-invalid @enderror" name="videogamename" value="{{ $game->videogamename }}" required autocomplete="videogamename" autofocus>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $product->name }}" required autocomplete="name" autofocus>
 
-                @error('videogamename')
+                @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -21,12 +18,12 @@
         </div>
 
         <div class="form-group row">
-            <label for="console" class="col-md-4 col-form-label text-md-right">{{ __('Consola') }}</label>
+            <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
 
             <div class="col-md-6">
-                <input id="console" type="text" class="form-control @error('console') is-invalid @enderror" name="console" value="{{ $game->consoletype }}" required autocomplete="console" autofocus>
+                <input id="categoria" type="text" class="form-control @error('categoria') is-invalid @enderror" name="console" value="{{ $product->category_id }}" required autocomplete="console" autofocus>
 
-                @error('console')
+                @error('categoria')
                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -38,7 +35,7 @@
             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
 
             <div class="col-md-6">
-                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $game->price }}" required autocomplete="price">
+                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $product->price }}" required autocomplete="price">
 
                 @error('price')
                 <span class="invalid-feedback" role="alert">
@@ -52,7 +49,7 @@
             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
 
             <div class="col-md-6">
-                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description"  value="{{$game->description}}" required autocomplete="description">
+                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description"  value="{{$product->description}}" required autocomplete="description">
 
                 @error('description')
                 <span class="invalid-feedback" role="alert">
