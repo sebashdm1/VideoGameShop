@@ -3,6 +3,9 @@
         @csrf <!--token para pasar la verificacioin de seguridad-->
         @method($game->method())
 
+
+
+
         <div class="form-group row">
             <label for="videogamenamename" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Video Juego') }}</label>
 

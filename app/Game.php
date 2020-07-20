@@ -15,27 +15,4 @@ class Game extends Model
     public function  method(){
         return $this->id ? 'PUT' : 'POST';
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

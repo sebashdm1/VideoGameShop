@@ -10,7 +10,7 @@ class GamesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -45,7 +45,7 @@ class GamesController extends Controller
         ];
 
         if(Game::create($options)){
-              return  redirect('/games');
+            return  redirect('/games');
         }else{
             return view('games.create');
         }
@@ -66,7 +66,7 @@ class GamesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {

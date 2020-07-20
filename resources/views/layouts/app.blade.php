@@ -71,7 +71,7 @@
                                     </a>
                                     @endcan
 
-                                    <a class="dropdown-item" href="{{route('games.index')}}">
+                                    <a class="dropdown-item" href="{{route('products.index')}}">
                                         {{ __('Catálogo') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
