@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
             Route::resource('users', 'UsersController');
         });
         Route::resource('products', 'ProductController');
+        Route::get('/adminproducts', 'ProductController@adminproducts')->name('adminproducts');
         Route::resource('games', 'GamesController');
         Route::resource('roles', 'RoleController');
     });

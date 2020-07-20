@@ -20,6 +20,15 @@ class ProductController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function adminproducts()
+    {
+        $products = Product::all();
+        return view('products.adminproducts',['products' => $products]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -97,10 +106,14 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Product $product)
     {
-        //
+        if(!$product->delete()) {
+            return redirect('/adminproducts');
+        } else {
+            return redirect('/adminproducts');
+        }
     }
 }
