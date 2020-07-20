@@ -55,8 +55,6 @@ class ProductController extends Controller
             'slug'=> $request->slug,
             'price'=> $request->price,
             'stock'=> $request->stock,
-
-
         ];
 
         if(Product::create($options)){
@@ -64,7 +62,6 @@ class ProductController extends Controller
         }else{
             return view('products.create');
         }
-
     }
 
     /**
@@ -83,11 +80,12 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Product $product)
     {
-
+        $ProductCategories = ProductCategory::all();
+        return view('products.edit')->with(["product"=>$product,"ProductCategories"=>$ProductCategories]);
     }
 
     /**
@@ -95,11 +93,23 @@ class ProductController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Product $product)
     {
-        //
+           $product-> name = $request->name;
+           $product-> description = $request->description;
+           $product-> category_id = $request->ProductCategory;
+           $product-> slug= $request->slug;
+           $product-> price= $request->price;
+           $product-> stock= $request->stock;
+
+        if($product->save()){
+            return  redirect('/adminproducts');
+        }else{
+            $ProductCategories = ProductCategory::all();
+            return view('products.edit')->with(["product"=>$product,"ProductCategories"=>$ProductCategories]);
+        }
     }
 
     /**

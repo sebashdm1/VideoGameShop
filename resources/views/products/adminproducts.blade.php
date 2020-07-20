@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{$product->id}}</td>
                                     <td>{{$product->name}}</td>
-                                    <td>{{$product->userName}}</td>
+                                    <td>{{$product->created_at}}</td>
                                     <td></td>
                                     <td>{{$product->price}}</td>
                                     @if($product->isBlocked == 0)

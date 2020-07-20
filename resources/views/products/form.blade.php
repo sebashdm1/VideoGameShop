@@ -60,7 +60,7 @@
             <label for="slug" class="col-md-4 col-form-label text-md-right">{{ __('slug') }}</label>
 
             <div class="col-md-6">
-                <input id="test" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug"  value="{{$product->description}}" required autocomplete="slug">
+                <input id="test" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug"  value="{{$product->slug}}" required autocomplete="slug">
 
                 @error('slug')
                 <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
             <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Stock') }}</label>
 
             <div class="col-md-6">
-                <input id="stock" type="number" class="form-control @error('stock') is-invalid @enderror" name="stock"  value="{{$product->description}}" required autocomplete="stock">
+                <input id="stock" type="number" class="form-control @error('stock') is-invalid @enderror" name="stock"  value="{{$product->stock}}" required autocomplete="stock">
 
                 @error('stock')
                 <span class="invalid-feedback" role="alert">
