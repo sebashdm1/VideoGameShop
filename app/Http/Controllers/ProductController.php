@@ -62,11 +62,12 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show',['product' =>$product]);
+
     }
 
     /**

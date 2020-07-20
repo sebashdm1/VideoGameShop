@@ -7,7 +7,9 @@
                 <div class="col-md-4">
                     <div class="card padding">
                         <header>
-                            <h2 class = "card-title">{{$product->name}}</h2>
+                            <h2 class = "card-title">
+                                <a href="/products/{{$product->id}}"> {{$product->name}}</a>
+                            </h2>
                             <h4 class="card-subtitle">{{$product->price}}</h4>
                         </header>
                         <div class="card-img"> {{$product->image}}</div>
@@ -16,9 +18,8 @@
                 </div>
             @endforeach
         </div>
-        <div class="actions">
+        <div class="actions text-center">
             {{$products->links()}}
-
         </div>
     </div>
 @endsection
