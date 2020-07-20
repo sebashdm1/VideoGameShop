@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -25,18 +26,36 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $ProductCategories = ProductCategory::all();
         $product = new product;
-        return view('products.create',["product"=>$product]);
+        return view('products.create')->with(["product"=>$product,"ProductCategories"=>$ProductCategories]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
+        $options = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'category_id' => $request->ProductCategory,
+            'slug'=> $request->slug,
+            'price'=> $request->price,
+            'stock'=> $request->stock,
+
+
+        ];
+
+        if(Product::create($options)){
+            return  redirect('/products');
+        }else{
+            return view('products.create');
+        }
+
     }
 
     /**
@@ -58,7 +77,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
     }
 
     /**

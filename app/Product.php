@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public $fillable = ['name','category_id','description','image_url','price'];
+    public $fillable = ['name','category_id','description','image_url','price','stock','slug'];
 
     public function url(){
         return $this->id ? 'products.update':'products.store';

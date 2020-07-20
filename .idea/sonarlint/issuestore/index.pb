@@ -155,3 +155,9 @@ X
 (database/seeds/ProductCategorySeeder.php,8\6\86ae0354e90165a323a40e382e753911ab3bc525
 U
 %database/factories/ProductFactory.php,c\5\c56d49946e92bbae303113506e643ee2f558bb9c
+W
+'resources/views/products/edit.blade.php,8\c\8cc5661c47bf84b40256c4bb79c6df29ef928955
+Y
+)resources/views/products/create.blade.php,8\8\88ac2bc240b4279083381315135352b8b2035a06
+W
+'resources/views/products/form.blade.php,9\e\9ef3b875a136257aef9ebb8cfb8eac7d673aa5c8

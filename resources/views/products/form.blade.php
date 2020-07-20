@@ -17,22 +17,18 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
-
-            <div class="col-md-6">
-                <input id="categoria" type="text" class="form-control @error('categoria') is-invalid @enderror" name="console" value="{{ $product->category_id }}" required autocomplete="console" autofocus>
-
-                @error('categoria')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                @enderror
+            <div class="form-group row">
+                <label for="ProductCategory" class="col-md-4 col-form-label text-md-right">{{ __('Categoria Producto') }}</label>
+                <select  name="ProductCategory" >
+                    @foreach($ProductCategories as $ProductCategory)
+                 <option value="{{$ProductCategory->id}}">{{$ProductCategory->title}}</option>
+                    @endforeach
+                </select>
             </div>
-        </div>
+
 
         <div class="form-group row">
-            <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
+            <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Valor unitario') }}</label>
 
             <div class="col-md-6">
                 <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $product->price }}" required autocomplete="price">
@@ -52,6 +48,36 @@
                 <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description"  value="{{$product->description}}" required autocomplete="description">
 
                 @error('description')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="slug" class="col-md-4 col-form-label text-md-right">{{ __('slug') }}</label>
+
+            <div class="col-md-6">
+                <input id="test" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug"  value="{{$product->description}}" required autocomplete="slug">
+
+                @error('slug')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Stock') }}</label>
+
+            <div class="col-md-6">
+                <input id="stock" type="number" class="form-control @error('stock') is-invalid @enderror" name="stock"  value="{{$product->description}}" required autocomplete="stock">
+
+                @error('stock')
                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
