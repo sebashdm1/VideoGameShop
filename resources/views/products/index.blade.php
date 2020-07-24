@@ -3,26 +3,10 @@
 @section('content')
     <div class="container">
 
-        <div>
-            <products-component></products-component>
-        </div>
+            <products-component
+             :products-values="{{$products}}"
+            ></products-component>
 
-        <div class="row">
-            @foreach($products as $product)
-                <div class="col-md-4">
-                    <div class="card padding">
-                        <header>
-                            <h2 class = "card-title">
-                                <a href="/products/{{$product->id}}"> {{$product->name}}</a>
-                            </h2>
-                            <h4 class="card-subtitle">{{$product->price}}</h4>
-                        </header>
-                        <div class="card-img"> {{$product->image}}</div>
-                        <p class="card-text">{{$product->description}}</p>
-                    </div>
-                </div>
-            @endforeach
-        </div>
         <div class="actions text-center">
             {{$products->links()}}
         </div>

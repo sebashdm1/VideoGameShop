@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProductsCollection;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Request $request
+     * @return ProductsCollection
      */
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::paginate(20);
         return view('products.index',['products' => $products]);
