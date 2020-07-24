@@ -3,9 +3,7 @@
 @section('content')
     <div class="container">
 
-            <products-component
-             :products-values="{{$products}}"
-            ></products-component>
+            <products-component></products-component>
 
         <div class="actions text-center">
             {{$products->links()}}

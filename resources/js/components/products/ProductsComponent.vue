@@ -1,7 +1,14 @@
 <template>
     <section>
-        <transition-group tag="div" :css="false" name="aparecer" @before-enter="" @enter="" @leave="" class="row" >
-          <product-card-component v-bind:product="product" v-for="product in products">
+        <transition-group
+                          tag="div"
+                          :css="false"
+                          name="aparecer"
+                          @before-enter="beforeEnter"
+                          @enter="enter"
+                          @leave="leave"
+                          class="row" >
+          <product-card-component   :key="product.id" :data-index="index" v-bind:product="product" v-for="(product,index) in products">
           </product-card-component>
         </transition-group>
     </section>
@@ -31,6 +38,17 @@
                 el.style.transform = "scale(0)";
                 el.style.transition = "all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)"
             },
+            enter(el){
+                const delay = 100 *el.dataset.index;
+                setTimeout(()=>{
+                    el.style.opacity = 1;
+                    el.style.transform = "scale(1)";
+                },delay)
+            },
+            leave(el){
+                el.style.opacity = 0;
+                el.style.transform = "scale(0)";
+            }
         }
     }
 </script>

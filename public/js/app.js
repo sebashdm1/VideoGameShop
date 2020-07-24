@@ -1983,6 +1983,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2006,6 +2013,17 @@ __webpack_require__.r(__webpack_exports__);
       el.style.opacity = 0;
       el.style.transform = "scale(0)";
       el.style.transition = "all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)";
+    },
+    enter: function enter(el) {
+      var delay = 100 * el.dataset.index;
+      setTimeout(function () {
+        el.style.opacity = 1;
+        el.style.transform = "scale(1)";
+      }, delay);
+    },
+    leave: function leave(el) {
+      el.style.opacity = 0;
+      el.style.transform = "scale(0)";
     }
   }
 });
@@ -37653,13 +37671,16 @@ var render = function() {
           staticClass: "row",
           attrs: { tag: "div", css: false, name: "aparecer" },
           on: {
-            "before-enter": function($event) {},
-            enter: function($event) {},
-            leave: function($event) {}
+            "before-enter": _vm.beforeEnter,
+            enter: _vm.enter,
+            leave: _vm.leave
           }
         },
-        _vm._l(_vm.products, function(product) {
-          return _c("product-card-component", { attrs: { product: product } })
+        _vm._l(_vm.products, function(product, index) {
+          return _c("product-card-component", {
+            key: product.id,
+            attrs: { "data-index": index, product: product }
+          })
         }),
         1
       )

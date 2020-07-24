@@ -18,6 +18,9 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::paginate(20);
+        if($request->wantsJson()){
+            return new ProductsCollection($products);
+        }
         return view('products.index',['products' => $products]);
     }
 
