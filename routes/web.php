@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
         Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
             Route::resource('users', 'UsersController');
         });
+        Route::get('/adminpanel', 'HomeController@adminPanel')->name('adminpanel');
         Route::resource('products', 'ProductController');
         Route::get('/adminproducts', 'ProductController@adminproducts')->name('adminproducts');
         Route::resource('games', 'GamesController');
