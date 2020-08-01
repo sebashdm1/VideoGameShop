@@ -13,15 +13,16 @@ class ProductController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return ProductsCollection
+
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(20);
+        $products = Product::orderBy('id','ASC')->paginate(9);
         if($request->wantsJson()){
+
             return new ProductsCollection($products);
         }
-        return view('products.index',['products' => $products]);
+        return view('products.index');
     }
 
     /**

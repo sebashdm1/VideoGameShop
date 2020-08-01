@@ -5,8 +5,5 @@
 
             <products-component></products-component>
 
-        <div class="actions text-center">
-            {{$products->links()}}
-        </div>
     </div>
 @endsection
