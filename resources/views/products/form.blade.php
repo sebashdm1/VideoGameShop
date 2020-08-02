@@ -1,5 +1,11 @@
 <div class="card-body">
-    <form method="POST" action="{{ route($product->url(),$product->id) }}"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
+    <form method="POST" action="{{ route($product->url(),$product->id) }}" @submit="Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})"> <!-- se utilizan metodos para variar la url con respecto a store y put y asi reutilizar el form-->
     @csrf <!--token para pasar la verificacioin de seguridad-->
         @method($product->method())
 
@@ -87,10 +93,11 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" >
                     {{ __('Guardar') }}
                 </button>
             </div>
         </div>
     </form>
 </div>
+
