@@ -10,33 +10,32 @@
 
                     </div>
                     <div class="card-body">
+                        <div class="card-img">
+                            <img src="../../storage/images/{{$product->image}}" alt="foto producto">
+                        </div><br>
 
                         <div class="form-group row">
-                            <h6>{{ __('Descripcion del producto: ') }}</h6>
-                            <div class="col-md-8">
-                                {{ $product->description }}
+                            <div class="col-md-12">
+                                <h6>{{ __('Descripcion del producto: ') }}{{ $product->description }}</h6>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <h6>{{ __('Precio: ') }}</h6>
-                            <div class="col-md-8">
-                                {{ $product->price}}
+                            <div class="col-md-2">
+                                <p> {{ __('Precio: ') }}{{ $product->price}}</p>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{ __('Stock: ') }} {{ $product->stock }}</h6>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <h6>{{ __('Cantidad en stock: ') }}</h6>
                             <div class="col-md-8">
-                                {{ $product->stock }}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <h6>{{ __('Estado: ') }}</h6>
-                            <div class="col-md-8">
-                                @if($product->isBlocked == 0)
-                                    <h6>Disponible</h6>
-                                @else
-                                    <h6>Agotado</h6>
-                                @endif
+                                <h6>{{ __('Estado: ') }} @if($product->isBlocked == 0)
+                                        {{ __('Disponible') }}
+                                    @else
+                                        {{ __('Agotado') }}
+                                    @endif</h6>
                             </div>
                         </div>
                         <div class="card-actions">
