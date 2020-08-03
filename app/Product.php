@@ -19,4 +19,9 @@ class Product extends Model
     public function  method(){
         return $this->id ? 'PUT' : 'POST';
     }
+    public function category()
+    {
+        return $this->belongsTo('App\ProductCategory');
+    }
 }
+

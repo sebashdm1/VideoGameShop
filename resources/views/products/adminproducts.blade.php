@@ -26,7 +26,7 @@
                                     <td>{{$product->id}}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->created_at}}</td>
-                                    <td></td>
+                                    <td> {{$product->category->title}}</td>
                                     <td>{{$product->price}}</td>
                                     @if($product->isBlocked == 0)
                                         <td>Disponible</td>

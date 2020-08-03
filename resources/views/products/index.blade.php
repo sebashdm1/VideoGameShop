@@ -10,9 +10,10 @@
                             <h2 class = "card-title">
                                 <a href="/products/{{$product->id}}"> {{$product->name}}</a>
                             </h2>
+
                             <h4 class="card-subtitle">{{$product->price}}</h4>
                         </header>
-                        <div class="card-img"> {{$product->image}}</div>
+                        <div class="figure-img" align="center"><img src="../../storage/images/{{$product->image}}" alt="foto producto" width="100" height="100" ></div>
                         <p class="card-text">{{$product->description}}</p>
                     </div>
                 </div>

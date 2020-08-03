@@ -4,14 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\ProductCategory;
+use App\Http\Requests\ProductsRequest;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -20,7 +28,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function adminproducts()
     {
@@ -31,7 +39,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -43,10 +51,10 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param ProductsRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(ProductsRequest $request)
     {
         $options = [
             'name' => $request->name,
@@ -58,7 +66,7 @@ class ProductController extends Controller
         ];
 
         if(Product::create($options)){
-            return  redirect('/products');
+            return  redirect('/products')->with('success', 'Producto Creado con Exito!');
         }else{
             return view('products.create');
         }
@@ -67,20 +75,19 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Product $product
+     * @return Application|Factory|View
      */
     public function show(Product $product)
     {
         return view('products.show',['product' =>$product]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Product $product
+     * @return Application|Factory|View
      */
     public function edit(Product $product)
     {
@@ -91,11 +98,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param ProductsRequest $request
+     * @param Product $product
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductsRequest $request, Product $product)
     {
            $product-> name = $request->name;
            $product-> description = $request->description;
@@ -105,7 +112,7 @@ class ProductController extends Controller
            $product-> stock= $request->stock;
 
         if($product->save()){
-            return  redirect('/adminproducts');
+            return  redirect('/adminproducts')->with('success', 'Producto Actualizado!');
         }else{
             $ProductCategories = ProductCategory::all();
             return view('products.edit')->with(["product"=>$product,"ProductCategories"=>$ProductCategories]);
@@ -114,14 +121,16 @@ class ProductController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param Product $product
+     * @return Application|RedirectResponse|Redirector
+     * @throws Exception
      */
     public function destroy(Product $product)
     {
         if(!$product->delete()) {
-            return redirect('/adminproducts');
+
+            return redirect('/adminproducts')->with('success', 'Task Created Successfully!');
+
         } else {
             return redirect('/adminproducts');
         }
