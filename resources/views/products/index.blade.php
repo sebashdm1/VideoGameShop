@@ -12,7 +12,7 @@
                             </h2>
                             <h4 class="card-subtitle">{{$product->price}}</h4>
                         </header>
-                        <div class="card-img"> {{$product->image}}</div>
+                        <div class="card-img"><img src="../../storage/images/{{$product->image}}" alt="foto producto"></div>
                         <p class="card-text">{{$product->description}}</p>
                     </div>
                 </div>

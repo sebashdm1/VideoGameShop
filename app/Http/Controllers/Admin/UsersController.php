@@ -7,6 +7,7 @@ use App\Product;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UsersController extends Controller
 {
@@ -24,7 +25,6 @@ class UsersController extends Controller
         abort(403);
     }
 
-
     /**
      * @param User $user
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -33,7 +33,6 @@ class UsersController extends Controller
     {
         return view('users.show',['user' => $user]);
     }
-
 
     /**
      * @param User $user
@@ -79,6 +78,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         if(!$user->delete()) {
+            alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.');
             return redirect('/admin/users');
         } else {
             return redirect('/admin/users');

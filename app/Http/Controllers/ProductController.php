@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\ProductCategory;
 use App\Http\Requests\ProductsRequest;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -65,8 +66,7 @@ class ProductController extends Controller
         ];
 
         if(Product::create($options)){
-            alert()->success('SuccessAlert','Producto creado con exito');
-            return  redirect('/products');
+            return  redirect('/products')->with('success', 'Producto Creado con Exito!');
         }else{
             return view('products.create');
         }
@@ -112,7 +112,7 @@ class ProductController extends Controller
            $product-> stock= $request->stock;
 
         if($product->save()){
-            return  redirect('/adminproducts');
+            return  redirect('/adminproducts')->with('success', 'Producto Actualizado!');
         }else{
             $ProductCategories = ProductCategory::all();
             return view('products.edit')->with(["product"=>$product,"ProductCategories"=>$ProductCategories]);
@@ -121,14 +121,16 @@ class ProductController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param Product $product
      * @return Application|RedirectResponse|Redirector
+     * @throws Exception
      */
     public function destroy(Product $product)
     {
         if(!$product->delete()) {
-            return redirect('/adminproducts');
+
+            return redirect('/adminproducts')->with('success', 'Task Created Successfully!');
+
         } else {
             return redirect('/adminproducts');
         }
