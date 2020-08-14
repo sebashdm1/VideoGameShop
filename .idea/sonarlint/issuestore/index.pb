@@ -161,3 +161,17 @@ Y
 )resources/views/products/create.blade.php,8\8\88ac2bc240b4279083381315135352b8b2035a06
 W
 'resources/views/products/form.blade.php,9\e\9ef3b875a136257aef9ebb8cfb8eac7d673aa5c8
+Q
+!app/Http/Requests/userRequest.php,8\4\84e54e48b2821ecee44348d305ef7a075f218336
+`
+0resources/views/products/adminproducts.blade.php,9\a\9a302e1a945b78188f1b6ffe6d6e8cd3f6c047ad
+W
+'resources/views/products/show.blade.php,e\3\e36e105dcc217a8f69cbba25953d19f2aff8ffc8
+Y
+)resources/views/products/delete.blade.php,0\5\05e475f2616124a631c7465a057f9140375bdbfe
+X
+(resources/views/products/index.blade.php,d\8\d8a216e44bbf968eb309c23d00ce39732024d0d9
+Y
+)database/seeds/PermissionsTableSeeder.php,6\e\6ed3f71d508b0d109a46cdaccd95945b8b160c9d
+B
+public/css/app.css,a\e\aed169877220cb60c39687eb7ae1de7d4fb7946f

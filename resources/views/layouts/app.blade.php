@@ -75,6 +75,10 @@
                                     </a>
                                     @endcan
 
+                                    <a class="dropdown-item" href="{{ route('adminproducts') }}">
+                                        {{ __('Administrar productos') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{route('products.index')}}">
                                         {{ __('Catálogo') }}
                                     </a>

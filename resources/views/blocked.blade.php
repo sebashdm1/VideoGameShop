@@ -9,13 +9,10 @@
                     <div class="card-header">Aviso</div>
 
                     <div class="card-body">
-
-
-                            <div class="title m-b-md">
+                        <div class="title m-b-md">
                                 tu usuario se encuentra deshabilitado!
                                 <h4>Comunicate con el administrador del sistema</h4>
-                            </div>
-
+                        </div>
                 </div>
             </div>
         </div>
