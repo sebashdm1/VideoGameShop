@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h5>{{ $product->name }}</h5>
-
+                        <button><a href="{{route('products.index')}}">atras</a></button>
                     </div>
                     <div class="card-body">
                         <div class="card-img">

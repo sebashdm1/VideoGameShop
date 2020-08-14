@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Editar un producto') }}
-                        <p>{{$product->name}}</p>
+                        <p>{{$product->name}}</p><button><a href="{{route('products.index')}}">atras</a></button>
                     </div>
                     <div class="card-body">
                         @include('products.form')

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container productcontainer">
         <div class="row">
             @foreach($products as $product)
                 <div class="col-md-4">
